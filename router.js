@@ -103,3 +103,8 @@ function getTitle(markup) {
   const match = /(?:<title>)(.+)(?:(<\/title>)/.exec(markup);
   return match && match[1] || '';
 }
+
+function getBody(markup) {
+  const match = /(<body>)((.|\s)+)(<\/body>)/.exec(markup);
+  return match && match[2] || '';
+}
