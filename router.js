@@ -23,9 +23,10 @@ window.onpopstate = function(e) {
     .catch(console.warn)
 }
 
-function replaceContent(href, newBody) {
+function replaceContent(href, html) {
   // stopLoader()
-  document.body.innerHTML = newBody
+  document.title = getTitle(html)
+  document.body.innerHTML = getBody(html)
   bindLinks(document.body)
 }
 
