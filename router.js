@@ -8,6 +8,7 @@
 (function() {
   const StartEventKey = 'loadstart';
   const EndEventKey = 'loadend';
+  var previousListeners; // To keep track of click-event listeners.
 
   const SiteRouter = window.SiteRouter = {
     handlers: {
@@ -89,25 +90,42 @@
   }
 
   function bindLinks(root) {
+    if (previousListeners) {
+      previousListeners.forEach(function(listener) {
+        listener.link.removeEventListener('click', listener.handler);
+        listener.link.removeEventListener('touchend', listener.handler);
+        listener.link.removeEventListener('touchcancel', listener.handler);
+      });
+    }
+
     const links = root.getElementsByTagName('a');
+    const listeners = [];
 
     for (var i = 0; i < links.length; i++) {
       const link = links[i];
       const href = link.getAttribute('href');
+      const handler = makeLinkTo(href);
 
       if (isSameDomain(href)) {
-        link.addEventListener('click', makeLinkTo(href));
-        link.addEventListener('touchend', makeLinkTo(href));
-        link.addEventListener('touchcancel', makeLinkTo(href));
+        link.addEventListener('click', handler);
+        link.addEventListener('touchend', handler);
+        link.addEventListener('touchcancel', handler);
       }
+
+      listeners.push({
+        link: link,
+        handler: handler,
+      });
     }
+
+    previousListeners = listeners;
   }
 
   // if not relative link (starts with . or /)
   // extension is 'html, htm, /, or none'
   // or maybe: if hostname is not the same
   function isSameDomain(url) {
-    return /^(\.|\/[^/])/.test(url);
+    return url === '/' || /\.|\/[^\/]/.test(url);
   }
 
   function getTitle(markup) {
