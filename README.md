@@ -1,8 +1,6 @@
-# simple router
+# Static Site Router
 
-Simple client-side routing script to turn static websites into SPA's.
+Client-side routing script to turn static websites into SPA's.
 
-## todo
-- Use body content only when replacing body
-- Dynamically update title
+## Todo
 - Dynamically load and unload scripts and stylesheets
