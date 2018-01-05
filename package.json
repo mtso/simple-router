@@ -1,0 +1,7 @@
+{
+  "name": "static-site-router",
+  "version": "0.2.0",
+  "devDependencies": {
+    "uglifyjs": "^2.4.11"
+  }
+}
