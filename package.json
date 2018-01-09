@@ -1,10 +1,12 @@
 {
   "name": "static-site-router",
   "version": "0.2.1",
+  "license": "MIT",
   "scripts": {
-    "build": "uglifyjs --compress --mangle -o index.js -- router.js"
+    "build": "rollup -c"
   },
   "devDependencies": {
-    "uglify-js": "^2.4.11"
+    "rollup": "^0.53.3",
+    "rollup-plugin-minify-es": "^1.1.1"
   }
 }
