@@ -19,7 +19,7 @@
 
   SiteRouter.addEventListener = function addEventListener(event, listener) {
     SiteRouter.handlers[event] = SiteRouter.handlers[event] || [];
-    if (!SiteRouter.handler[event].includes(listener)) {
+    if (!SiteRouter.handlers[event].includes(listener)) {
       SiteRouter.handlers[event].push(listener);
     }
     return listener;
