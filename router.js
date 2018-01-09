@@ -30,7 +30,7 @@
 
     fetchAndReplace(to)
       .then(function() {
-        history.replacestate({path: location.href}, options.title, to);
+        history.replaceState({path: location.href}, options.title, to);
       });
   };
 
