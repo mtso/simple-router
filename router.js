@@ -125,7 +125,7 @@
   // extension is 'html, htm, /, or none'
   // or maybe: if hostname is not the same
   function isSameDomain(url) {
-    return url === '/' || /\.|\/[^\/]/.test(url);
+    return url === '/' || /^(\.|\/[^\/])/.test(url);
   }
 
   function getTitle(markup) {
