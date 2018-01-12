@@ -10,7 +10,8 @@ export default {
   plugins: [
     minify(),
     resolve({
-      browser: true,
+      jsnext: true,
+      main: true,
     }),
   ],
 };
