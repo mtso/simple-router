@@ -18,5 +18,10 @@
     "presets": [
       "env"
     ]
+  },
+  "dependencies": {
+    "eventemitter3": "^3.0.0",
+    "inherits": "^2.0.3",
+    "rollup-plugin-commonjs": "^8.2.6"
   }
 }
